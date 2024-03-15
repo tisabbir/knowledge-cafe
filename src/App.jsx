@@ -3,19 +3,33 @@ import "./App.css";
 import Blogs from "./components/Blogs/Blogs";
 import Bookmarks from "./components/Bookmarks/Bookmarks";
 import Header from "./components/Header/Header";
-
+import SpentTime from "./components/SpentTime/SpentTime";
 function App() {
   const [bookmarks, setBookmarks] = useState([]);
   const handleAddToBookmark = (blog) => {
-    console.log("book mark adding soon");
+    const newBookmarks = [...bookmarks, blog];
+    setBookmarks(newBookmarks);
+  };
+
+  const [times, setTimes] = useState(0);
+
+  const handleAddTime = (blog) => {
+    const newTimes = times + blog.reading_time;
+    setTimes(newTimes);
   };
 
   return (
     <div className=" max-w-6xl mx-auto">
       <Header></Header>
       <div className="flex">
-        <Blogs handleAddToBookmark={handleAddToBookmark}></Blogs>
-        <Bookmarks></Bookmarks>
+        <Blogs
+          handleAddToBookmark={handleAddToBookmark}
+          handleAddTime={handleAddTime}
+        ></Blogs>
+        <div className="md:w-1/3">
+          <SpentTime times={times}></SpentTime>
+          <Bookmarks bookmarks={bookmarks}></Bookmarks>
+        </div>
       </div>
     </div>
   );
