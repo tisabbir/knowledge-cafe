@@ -31,6 +31,7 @@ const Blogs = ({ handleAddToBookmark, handleAddTime }) => {
 Blogs.propTypes = {
   blogs: PropTypes.object.isRequired,
   handleAddToBookmark: PropTypes.func,
+  handleAddTime: PropTypes.func,
 };
 
 export default Blogs;
