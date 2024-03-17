@@ -4,6 +4,8 @@ import Blogs from "./components/Blogs/Blogs";
 import Bookmarks from "./components/Bookmarks/Bookmarks";
 import Header from "./components/Header/Header";
 import SpentTime from "./components/SpentTime/SpentTime";
+
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [bookmarks, setBookmarks] = useState([]);
   const handleAddToBookmark = (blog) => {
@@ -23,6 +25,7 @@ function App() {
   return (
     <div className=" max-w-6xl mx-auto">
       <Header></Header>
+      {/* <Toast></Toast> */}
       <div className="flex">
         <Blogs
           handleAddToBookmark={handleAddToBookmark}
